@@ -16,12 +16,12 @@ import org.koin.core.component.KoinComponent
 import org.koin.java.KoinJavaComponent.inject
 import kotlin.reflect.KClass
 
-public open class BaseScreen<T : BaseDataManager>(private val dataManagerClass: KClass<T>) : KoinComponent {
+open class BaseScreen<T : BaseDataManager>(dataManagerClass: KClass<T>) : KoinComponent {
 
     private val dataManager: T by inject(dataManagerClass.java)
 
     @Composable
-    public fun LoadingIndicator() {
+    fun LoadingIndicator() {
         val loadingState by dataManager.loading.collectAsState()
             if (loadingState) {
                 ShowLoading()

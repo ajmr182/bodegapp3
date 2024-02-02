@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.icerockResources)
+    kotlin("plugin.serialization") version "1.9.0"
 }
 
 kotlin {
@@ -27,6 +28,7 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
+            implementation("androidx.compose.material3:material3-android:1.2.0-rc01")
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -38,6 +40,8 @@ kotlin {
             api(libs.icerock.resources.library)
             api(libs.icerock.resources)
             implementation(libs.koinCore)
+            implementation(libs.ktor.jvm)
+            implementation(libs.ktor.core)
             implementation(libs.voyager.navigator)
             implementation(libs.voyager.transitions)
             implementation(libs.kotlinx.serialization.json)
@@ -45,6 +49,8 @@ kotlin {
             implementation("io.github.jan-tennert.supabase:postgrest-kt")
             implementation("io.github.jan-tennert.supabase:realtime-kt")
             implementation("io.github.jan-tennert.supabase:gotrue-kt")
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.1")
+
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -56,8 +62,8 @@ android {
     namespace = "com.ajmr182.bodegaap3"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
-   /* sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    sourceSets["main"].res.srcDirs("src/androidMain/res")*/
+   sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    /* sourceSets["main"].res.srcDirs("src/androidMain/res")*/
    /* sourceSets["main"].resources.srcDirs("src/commonMain/resources")*/
 
     defaultConfig {
