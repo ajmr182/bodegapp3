@@ -26,9 +26,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import data.models.Product
+import dev.icerock.moko.resources.compose.stringResource
 import kotlinx.coroutines.launch
 import org.koin.java.KoinJavaComponent
 import ui.baseclass.BaseScreen
+import com.ajmr182.bodegaap3.SharedRes
 
 class InventoryScreenClass: BaseScreen<InventoryScreenDataManager>(InventoryScreenDataManager::class) {
     @OptIn(ExperimentalFoundationApi::class)
@@ -78,16 +80,16 @@ class InventoryScreenClass: BaseScreen<InventoryScreenDataManager>(InventoryScre
                 .padding(start = 4.dp)
         ) {
             Column(modifier = Modifier.weight(1f)) {
-                StickyHeaderItem("Name")
+                StickyHeaderItem(stringResource(SharedRes.strings.string_header_name))
             }
             Column(modifier = Modifier.weight(1f)) {
-                StickyHeaderItem("Quantity")
+                StickyHeaderItem(stringResource(SharedRes.strings.string_header_quantity))
             }
             Column(modifier = Modifier.weight(1f)) {
-                StickyHeaderItem("Price (USD)")
+                StickyHeaderItem(stringResource(SharedRes.strings.string_header_price_usd))
             }
             Column(modifier = Modifier.weight(1f)) {
-                StickyHeaderItem("Price (BS)")
+                StickyHeaderItem(stringResource(SharedRes.strings.string_header_price_bs))
             }
         }
     }
@@ -130,7 +132,7 @@ class InventoryScreenClass: BaseScreen<InventoryScreenDataManager>(InventoryScre
             }
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = productTest.productPrice,
+                    text = productTest.productPriceBs,
                     overflow = TextOverflow.Clip,
                 )
             }

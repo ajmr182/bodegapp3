@@ -15,6 +15,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.core.screen.Screen
 import ui.baseclass.navigationItems
+import ui.features.exchange.ExchangeScreenClass
 import ui.features.inventory.InventoryScreenClass
 
 class HomeScreen : Screen {
@@ -44,6 +45,12 @@ fun SelectScreen(selectedItem: Int) {
     when (selectedItem) {
         0 -> {
             InventoryScreenClass().InventoryScreen()
+        }
+        1->{
+
+        }
+        2->{
+            ExchangeScreenClass().ExchangeScreen()
         }
     }
 }
