@@ -16,6 +16,6 @@ data class NavigationItem(
 
 val navigationItems = listOf(
     NavigationItem({ stringResource(SharedRes.strings.string_menu_inventory) }, Icons.Filled.Favorite),
-    NavigationItem({ stringResource(SharedRes.strings.string_menu_inventory) }, Icons.Filled.Person),
-    NavigationItem({ stringResource(SharedRes.strings.string_menu_inventory) }, Icons.Filled.List)
+    NavigationItem({ stringResource(SharedRes.strings.string_menu_sell) }, Icons.Filled.Person),
+    NavigationItem({ stringResource(SharedRes.strings.string_menu_exchange) }, Icons.Filled.List)
 )
